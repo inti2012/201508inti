@@ -1,0 +1,92 @@
+@charset "utf-8";
+/* CSS Document */
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 12px;
+	font-style: normal;
+	line-height: normal;
+	font-weight: normal;
+	font-variant: normal;
+	color: #000;
+	background-color: #F93;
+	text-align: center;
+	border: 0px;
+	padding: 0px;
+}
+#container {
+	width:770px;
+	background-color:#FFF;
+	text-align: left;
+	margin: 0px auto;
+}
+#header {
+	width: 770px;
+	height: 100px;
+	background-color: #FFF;
+	background-image: url(../images2011/inti_gps_banner.png);
+	background-position: left top;
+	position: relative;
+	visibility: visible;
+	border-top-style: none;
+	margin:0 auto
+	padding:0 auto
+}
+#sidebar {
+	width: 140px;
+	background-color:#F36;
+	float:right;
+	padding:10px 10px;
+}
+#maincontent {
+	margin: 0 165px 0 0;
+	padding:10px;
+}
+.clearfloat {
+	clear:both;
+	height:0px;
+	font-size:1px;
+	line-height:0px;
+}
+#footer {
+	padding:5px;
+}
+p {
+	font-size:80%;
+	font-family: "Comic Sans MS", cursive;
+}
+ul {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 12px;
+	font-style: oblique;
+	line-height: normal;
+	font-weight: 100;
+	font-variant: small-caps;
+	color: #09C;
+	text-decoration: underline;
+}
+#maincontent p {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	font-size: medium;
+	font-weight: bold;
+	color: #930;
+	line-height:normal;
+}
+#sidebar ul li {
+	margin:0;
+	padding:15px 0 0 0;
+	background-color: #FFF;
+}
+
+#sidebar a {
+	font-style: italic;
+	font-weight: bold;
+	color: #06C;
+}
+#sidebar a:link {
+	color: #736B5E;
+}
+#sidebar a:visted {
+	color:#666;
+}
+#sidebar1 a:hover, #sidebar1 a:active, #sidebar1 a:focus { color: #333; }

@@ -1,0 +1,46 @@
+Install G04 OBD video link
+http://www.youtube.com/watch?v=R8hhEFcP2-Q
+Garmin install G04v3
+http://www.youtube.com/watch?v=fBkjQ2RXXLs&feature=related
+Geotab intro
+http://www.youtube.com/watch?v=8yDD90DePso&NR=1
+Geotab Mobile intro
+http://www.youtube.com/watch?v=Ds0tqftPXIE&feature=related
+Geotab OpenStreey
+http://www.youtube.com/watch?v=XB89VTgrS8A&feature=related
+RF or WiFi external antenna
+http://www.youtube.com/watch?v=oFG0aIT43bQ&NR=1
+OK Service bureau
+http://www.youtube.com/watch?v=t6FrVBol9cU&NR=1
+***************************************************************
+"Creation comes out of imperfection."
+
+There's an old proverb in the video encoding world: "Speed, size, quality: pick two." It means that you always have to make a trade-off between the time it takes to encode a video, the amount of compression used, and the picture quality. Well, this release of HandBrake refuses to compromise. It picks all three.
+Use this to convert video to x264
+Download it now.   http://handbrake.fr/
+***************************************************************
+Convert to Ogg Theora (Firefox and Chrome)
+http://firefogg.org/ (firefox addon)
+http://firefogg.org/dev/index.html
+ To use Firefogg on your site, you have to use the Firefogg Javascript api. There are two modes you can integrate Firefogg. one uploads data while the video is encoded. The other encodes the video and starts a regular multipart HTTP POST after that.
+
+    * Example encoding and uploading at the same time
+    * Example sending a multipart POST request once encoding is done
+Example PHP Site using Firefogg to allow video uploads
+
+bzr branch http://firefogg.org/dev/FirefoggPHPExample
+***************************************************************
+SWFObject 
+http://code.google.com/p/swfobject/
+Please DO NOT link directly to the JavaScript files in our SVN repository. Either download swfobject_2_x.zip from the Downloads  section and place a copy of the SWFObject 2 script on your own web server or link to a hosted version of the script provided by the Google AJAX Libraries API.
+News¶
+
+SWFObject 2.2 is available for download! It's good, go get it! You can read more about it in SWFObject 2.2 - What's new? 
+
+***************************************************************
+Audio Player (Flash)
+standalone version http://wpaudioplayer.com (also available as a Wordpress plugin.
+Copy audio-player.js and player.swf to your websites
+****************************************************************
+
+

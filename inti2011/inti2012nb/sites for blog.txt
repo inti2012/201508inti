@@ -1,0 +1,122 @@
+http://www.adobe.com/devnet/dreamweaver/articles/drupal_site_in_10_steps.html
+******************************************************************************
+(Update from 6.19 to 6.2) at this point I have no data I will convert a Joomla site to Drupal then a Wordpress
+http://drupal.org/node/534950   Files only---- http://xlecom.com/?q=node/5
+***************************************************
+Notes on update, sound scary..
+ previous uploaded version 6.17 of the modules in www.mysite.com/sites/all/modules :-Below you will find the method I used. Frankly, I surely believe I only followed instructions someone else provided, but maybe it will serve as a bit of encouragement to those still struggling.
+
+1. Back up all of your files (my backup wizard on the control panel allows me to backup my entire home directory) and I put them on my computer.
+2. Back up your database (same wizard) and also put on my computer
+3. Disable all the modules
+4. Put your site offline (site maintenance)
+5. FTP the files from the 6.16 folder to the site's "public_html" folder overwrite everything expect the "Sites" folder (don't import that from the 6.16 folder).
+OR use sam's abbreviated files and overwrite all of those in your site's "public_html" folder
+6. Run update.php http://yoursitename.com/update.php (if you get a warning to change the settings in the settings.php file, you have overwritten it. Restore with your saved copy from the backup. Run update.php again and it should now run.
+7. Enable all your modules
+8. Put your site back on line
+9. What about your backups? Well if all went well you don't need them. Be happy you had them in case things did not go well.
+10. Go have a cup of coffee you are done.
+
+Some of the steps might seem unimportant. I have read somewhere you should do them all. I have tried it other ways and this method has worked best form me.
+
+I do not know if this will help anyone, but after learning the hard way, I thought I would share this with you.
+"In these times truth is well hidden"
+*************************************************************************************
+
+http://drupal.org/project/joomla
+*********************************************
+for a typical Firefox installation the target field would be: "C:\Program Files\Mozilla Firefox\firefox.exe" -chrome chrome://fireftp/content/
+************************************************************************
+drupal blog setup
+http://drupal.org/node/41373
+http://drupal.org/node/278987  setup multi user step by step
+multi-site uses a different database for each site, which means the users are separate too. I think I remember seeing one or two contributed modules that allow sites to share users, so check out http://drupal.org/project/Modules/. An easier option is to just allow (and encourage) use of OpenID.
+******************************************************************8
+Thanks for the nice feedback, Renaud. If you want to install drupal in a subfolder and have it show up as the root folder, this http://drupial.com/content/install-drupal-subfolder/ 
+worked perfectly for me. However, I have adapted it to make it a little more search engine friendly, as recommended by this webmaster tips tutorial. So I have this .htaccess file in the root folder of my site (ie public_html):
+
+RewriteEngine on
+
+  RewriteCond %{HTTP_HOST} ^www\.yoursite\.com$ [NC]
+  RewriteRule ^(.*)$ http://yoursite.com/$1 [L,R=301]
+
+  RewriteCond %{HTTP_HOST} ^yoursite\.com$ [NC]
+  RewriteRule ^$ yourfolder/index.php [L]
+  RewriteCond %{HTTP_HOST} ^yoursite\.com$ [NC]
+  RewriteCond %{DOCUMENT_ROOT}/yourfolder%{REQUEST_URI} -f
+  RewriteRule .* yourfolder/$0 [L]
+  RewriteCond %{HTTP_HOST} ^yoursite\.com$ [NC]
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteRule .* yourfolder/index.php?q=$0 [QSA]
+The second and third lines just redirect www.yoursite.com to yoursite.com. The last nine lines redirect from the root to the Drupal installation folder, while keeping the root URL. Obviously, you'd replace yoursite.com with your own URL and yourfolder with the name of your Drupal installation folder. Good luck!
+************************************************************************8
+ Pathauto will automatically make nice customized URLs based on things like title, taxonomy, content type, and username. You also have to enable the path module for pathauto to work.
+*****************************************************************
+Example;http://drupal.org/node/73040
+The website and online shop is for a society with around 170 branches worldwide and some 20,000+ members spread throughout the 170 branches.
+
+The required user "roles" are:
+
+Anonymous user - read access to content but excluded from a "members only" section
+Authenticated user - same as above but can also order goods from the online shop
+Member - read access to all content and write access to their own user contact details
+Branch Administrator - same as above but also has write access to all users contact details within their branch membership and to website pages relating to their own branch
+Shop Administrator - write access to all e-commerce pages
+Website Administrator - default superuser
+The bulk of the content for the website would be posted and edited by a small group of members who are given editorial access rights to specific sections of the site.
+
+The content for the website is mainly plain editorial with some illustrative images much like a magazine site. There is also teaching materials and application forms for distribution as XHTML pages and PDF files.
+****************************************************************
+To provide your user to create blog entry, you need to activate the navigation block besides enabling all the permission options for blog. When the navigation block is enables, you will see "Create Content" and then "Blog Entry". This is one of the way your users can post blogs.
+
+The other way is in user profile page you will find "View recent blog entries". After clicking it, you will be taken to user's blog and then will find a link "Post new blog entry.".
+
+------------------------
+Thanks, crazyguru! The navigation block was already enabled so...
+Create Content > Blog Entry is an available alternative along with the aforementioned option:
+Blogs > My Blog > Post new blog entry. And you correctly identified another link to this node:
+My Account > View recent blog entries > Post new blog entry.
+
+So there are many ways to skin this cat but not the desired way found unter the Admin account:
+Blogs > Create new blog entry. which seems simplest.
+
+******************************************************************
+http://drupal.org/node/819948 (Pet store with pet of the month example)
+Views advanced help
+When this module is installed, users with the view advanced help index permission can access the advanced help index by going to Administer -> Advanced Help (http://www.example.com/admin/advanced_help). Additional view advanced help popup and view advanced help topic permissions enable them to access the actual help pages and popups.
+**************************************************************************
+12/18/2010 http://api.drupal.org/api/drupal ;Site for sample code, 
+http://drupal.org/setting-up-development-environment Tools and how to setup development environment
+***************************************************************************
+For comprehensive documentation on the menu system, see http://drupal.org/node/102338
+The examples are fully-functioning Drupal modules, so you can download them from the contributions repository and alter them as you experiment.
+Example modules
+How to define blocks
+How to define a content filter
+How to define content (node) types
+How to restrict access to nodes
+How to extend existing content types
+How to define pages
+http://drupal.org/node/199112  ;API form quickstart guide
+****************************************************************
+http://drupal.org/project/browser_theme
+Alas, I have created a solution! Granted, this will not work for those who have already set a custom cache include in their settings.php file. That being said, if anyone has any suggestions or would like to help create hooks for caching... please let me know!
+
+Open your settings.php file for your site and add this towards the end of the file (For those whom have Domain Access installed, place this before it):
+<?php
+  $conf['cache_inc'] = './sites/all/modules/browser_theme/cache.inc';
+?>
+What this does: Simply put it this cache include file replaces Drupal's cache_get and cache_set functions. It detects what browser you are using (Browscap must be installed and enabled!) and prepends the cache id (CID): browser-major-minor-CID.
+************************************************************************************8
+http://drupal.org/node/751306 Zen theme mods and how to set it up
+http://drupal.org/node/873778 Same zen help with links
+http://drupal.org/node/165706 Theme book
+http://api.drupal.org/api/drupal/includes--module.inc/group/hooks/6     Hooks examples
+A warning, the format of the function name is the key to the hook, if it's not precisely correct the hook won't work, moreover, if a part of the hook's name is misplaced bugs will occur. "some_module_theme" does dramatically different things from "theme_some_module" (which probably will do nothing)
+
+One more warning to the new developer trying to figure these things out: most of the functions listed here are not real functions used in Drupal but rather the abstraction of Drupal processes to be used for guidelines. Just so you don't try to edit the code hook_taxonomy and expect and a result.
+acquia_slate them how to install
+*****************************************************8
+
