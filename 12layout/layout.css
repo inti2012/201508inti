@@ -4,12 +4,7 @@ body {
   min-width: 525px;
 }
 
-header {
-  float: left;
-  width: 100%;
-}
-
-footer {
+header, footer {
   position:relative;
   float: left;
   width: 100%;
